@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✨ Global font and base styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* ✨ Fade + Slide-up animation (used in CartItem, etc.) */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp 0.3s ease forwards;
+}
+
+/* ✨ Glittering Animated Gradient for NavBar */
+.glow-navbar {
+  background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffff, #ffcc00, #ff0066);
+  background-size: 1000% 1000%;
+  animation: shimmer 10s ease infinite;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  color: white;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* 🔥 Animated rainbow border */
+.rainbow-border {
+  position: relative;
+  border-radius: 12px; /* optional: smooth corners */
+  padding: 4px; /* thickness of the border */
+  background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffff, #ffcc00, #ff0066);
+  background-size: 1000% 1000%;
+  animation: shimmer 10s ease infinite;
+  z-index: 0;
+}
+
+.rainbow-border::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: inherit;
+  z-index: -1;
+  mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+
